@@ -44,7 +44,7 @@
     "mocha": "1.18.2",
     "mocha-lcov-reporter": "0.0.1",
     "sinon": "1.9.0",
-    "uglify-js": "2.4.13"
+    "uglify-js": "3.7.3"
   },
   "testling": {
     "browsers": [
