@@ -144,7 +144,7 @@ console.log("multisigP2SH:", multisigAddress)
 
 
 
-## Projects utilizing BitcoinJS
+## Projects utilizing TaoJS
 
 - [Coinpunk](https://coinpunk.com)
 - [Hive Wallet](https://www.hivewallet.com)
