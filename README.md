@@ -66,12 +66,31 @@ After loading this file in your browser, you will be able to use the global `bit
 
 These examples assume you are running bitcoinjs-lib in the browser.
 
+### Generating a Tao BIP32 address
+```javascript
 
-### Generating a Bitcoin address
+
+const bip39 = require('bip39');
+const bip32 = require('bip32');
+const tao = require('taojs-lib');
+
+var i = 0;
+var m = bip39.generateMnemonic();
+var s = bip39.mnemonicToSeedSync(m);
+var node = bip32.fromSeed(s);
+var wallet = node.derive(i);
+
+var wif = wallet.toWIF();
+
+var key = tao.ECKey.fromWIF(wallet.toWIF());
+key.pub.getAddress().toString();
+```
+
+### Generating a Tao address
 
 ```javascript
 
-key = bitcoin.ECKey.makeRandom()
+key = tao.ECKey.makeRandom()
 
 // Print your private key (in WIF format)
 console.log(key.toWIF())
@@ -85,7 +104,7 @@ console.log(key.pub.getAddress().toString())
 ### Creating a Transaction
 
 ```javascript
-tx = new bitcoin.Transaction()
+tx = new tao.Transaction()
 
 // Add the input (who is paying) of the form [previous transaction hash, index of the output to use]
 tx.addInput("aa94ab02c182214f090e99a0d57021caffd0f195a81c24602b1028b130b63e31", 0)
@@ -94,7 +113,7 @@ tx.addInput("aa94ab02c182214f090e99a0d57021caffd0f195a81c24602b1028b130b63e31", 
 tx.addOutput("1Gokm82v6DmtwKEB8AiVhm82hyFSsEvBDK", 15000)
 
 // Initialize a private key using WIF
-key = bitcoin.ECKey.fromWIF("L1uyy5qTuGrVXrmrsvHWHgVzW9kKdrp27wBC7Vs6nZDTF2BRUVwy")
+key = tao.ECKey.fromWIF("L1uyy5qTuGrVXrmrsvHWHgVzW9kKdrp27wBC7Vs6nZDTF2BRUVwy")
 
 // Sign the first input with the new key
 tx.sign(0, key)
@@ -109,15 +128,15 @@ console.log(tx.toHex())
 ### Creating a P2SH Multsig Address
 
 ``` javascript
-var bitcoin = require('bitcoinjs-lib')
+var tao = require('taojs-lib')
  
-var privKeys = [bitcoin.ECKey.makeRandom(), bitcoin.ECKey.makeRandom(), bitcoin.ECKey.makeRandom()]
+var privKeys = [bitcoin.ECKey.makeRandom(), tao.ECKey.makeRandom(), tao.ECKey.makeRandom()]
 var pubKeys = privKeys.map(function(x) { return x.pub })
  
-var redeemScript = bitcoin.scripts.multisigOutput(2, pubKeys) // 2 of 3
-var scriptPubKey = bitcoin.scripts.scriptHashOutput(redeemScript.getHash())
+var redeemScript = tao.scripts.multisigOutput(2, pubKeys) // 2 of 3
+var scriptPubKey = tao.scripts.scriptHashOutput(redeemScript.getHash())
  
-var multisigAddress = bitcoin.Address.fromOutputScript(scriptPubKey).toString()
+var multisigAddress = tao.Address.fromOutputScript(scriptPubKey).toString()
 
 console.log("multisigP2SH:", multisigAddress)
 // => multisigP2SH: 35k9EWv2F1X5JKXHSF1DhTm7Ybdiwx4RkD
