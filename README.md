@@ -1,4 +1,4 @@
-# BitcoinJS (bitcoinjs-lib)
+# taoJS (taojs-lib)
 
 [![Build Status](https://travis-ci.org/bitcoinjs/bitcoinjs-lib.png?branch=master)](https://travis-ci.org/bitcoinjs/bitcoinjs-lib) [![Coverage Status](https://coveralls.io/repos/bitcoinjs/bitcoinjs-lib/badge.png)](https://coveralls.io/r/bitcoinjs/bitcoinjs-lib)
 
@@ -34,14 +34,14 @@ If you are looking for the original, it is tagged as `0.1.3`. Unless you need it
 
 ## Installation
 
-`npm install bitcoinjs-lib`
+`npm install https://github.com/taoblockchain/taojs-lib/`
 
 
 ## Setup
 
 ### Node.js
 
-    var bitcoin = require('bitcoinjs-lib')
+    var bitcoin = require('taojs-lib')
 
 From the repo:
 
