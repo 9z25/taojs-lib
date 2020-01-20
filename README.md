@@ -130,7 +130,7 @@ console.log(tx.toHex())
 ``` javascript
 var tao = require('taojs-lib')
  
-var privKeys = [bitcoin.ECKey.makeRandom(), tao.ECKey.makeRandom(), tao.ECKey.makeRandom()]
+var privKeys = [tao.ECKey.makeRandom(), tao.ECKey.makeRandom(), tao.ECKey.makeRandom()]
 var pubKeys = privKeys.map(function(x) { return x.pub })
  
 var redeemScript = tao.scripts.multisigOutput(2, pubKeys) // 2 of 3
@@ -200,5 +200,5 @@ This library is free and open-source software released under the MIT license.
 
 ## Copyright
 
-BitcoinJS (c) 2011-2012 Stefan Thomas
+TaoJS (c) 2011-2012
 Released under MIT license
