@@ -160,11 +160,7 @@ console.log("multisigP2SH:", multisigAddress)
  
 ## Contributors
 
-Stefan Thomas is the inventor and creator of this project. His pioneering work made Bitcoin web wallets possible.
-
-Since then, many people have contributed. [Click here](https://github.com/bitcoinjs/bitcoinjs-lib/graphs/contributors) to see the comprehensive list.
-
-Daniel Cousens, Wei Lu, JP Richardson and Kyle Drake lead the major refactor of the library from 0.1.3 to 1.0.0.
+Syndrome
 
 ## Contributing
 
