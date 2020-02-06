@@ -81,8 +81,6 @@ Transaction.prototype.addOutput = function(scriptPubKey, value) {
   // Attempt to get a valid script if it's an Address object
   if (scriptPubKey instanceof Address) {
     var address = scriptPubKey
-    console.log("address")
-    console.log(address)
     scriptPubKey = address.toOutputScript()
     console.log(scriptPubKey)
   }
@@ -105,11 +103,7 @@ Transaction.prototype.toBuffer = function () {
   var txOutSize = this.outs.reduce(function(a, x) {
     return a + (8 + bufferutils.varIntSize(x.script.buffer.length) + x.script.buffer.length)
   }, 0)
-  console.log("txInSize");
-  console.log(txInSize);
-  console.log("txOutSize");
-  console.log(txOutSize);
-
+  
   var buffer = new Buffer(
     8 + 4 + 9 +
     bufferutils.varIntSize(this.ins.length) +
