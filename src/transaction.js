@@ -178,10 +178,7 @@ Transaction.prototype.hashForSignature = function(prevOutScript, inIndex, hashTy
 
   var txTmp = this.clone()
   var hashScript = prevOutScript.without(opcodes.OP_CODESEPARATOR)
-console.log("hashScript")
-  console.log(hashScript)
-  console.log("txTmp");
-  console.log(txTmp);
+  
   // Blank out other inputs' signatures
   txTmp.ins.forEach(function(txin) {
     txin.script = Script.EMPTY
