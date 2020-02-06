@@ -82,7 +82,6 @@ Transaction.prototype.addOutput = function(scriptPubKey, value) {
   if (scriptPubKey instanceof Address) {
     var address = scriptPubKey
     scriptPubKey = address.toOutputScript()
-    console.log(scriptPubKey)
   }
 
   assert(scriptPubKey instanceof Script, 'Expected Address or Script, got ' + scriptPubKey)
