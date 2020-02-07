@@ -100,7 +100,7 @@ Transaction.prototype.toBuffer = function () {
   }, 0)
 
   var txOutSize = this.outs.reduce(function(a, x) {
-    return a + (8 + bufferutils.varIntSize(x.script.buffer.length) + x.script.buffer.length)
+    return a + (16 + bufferutils.varIntSize(x.script.buffer.length) + x.script.buffer.length)
   }, 0)
   
   var buffer = new Buffer(
